@@ -71,8 +71,10 @@ OBJ= \
   $(SRC_DIR)/Gui.o \
   $(SRC_DIR)/Separator.o
 
-default: $(OBJ)
-	$(CXX) -o ./$(EXE) $(SRC_DIR)/Main.cxx $(OBJ) $(CXXFLAGS) $(LIBS)
+all: $(EXE)
+
+$(EXE): $(OBJ)
+	$(CXX) -o $(EXE) $(SRC_DIR)/Main.cxx $(OBJ) $(CXXFLAGS) $(LIBS)
 
 $(SRC_DIR)/%.o: $(SRC_DIR)/%.cxx $(SRC_DIR)/%.H
 	$(CXX) $(CXXFLAGS) -c $< -o $@
